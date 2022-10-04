@@ -2,6 +2,8 @@
 
 @section('content')
 
+<x-sectionSlider />
+
 <H2>Boutique</H2>
 <!--La première ligne de la grille-->
 <div class="grille">
