@@ -7,6 +7,19 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Installation Projetc
+
+Cloner le project  ou telecharger en format zip
+
+dans le dossier de l'application 
+-Run Composer install
+- copy .env.example file to .env   vous puvez tapez dans le CMD <b>copy .env.example .env</b>
+- ouvrir le fichier .env et mettez lz nom de la base de donnee , l'utilisateur et mot de passe
+- run  <b>php artisan key:generate</b>
+- run  <b>php artisan migrate</b>
+- run  <b>php artisan serve</b>
+
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:

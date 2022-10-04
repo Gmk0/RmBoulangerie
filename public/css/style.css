@@ -1,0 +1,292 @@
+/*REGLAGE GENERAL*/
+
+a:hover /* Apparence au survol des liens */
+{
+    color: green;
+}
+a
+{
+    text-decoration: none;
+    color: #444;
+    font-weight: bolder;
+}
+h1
+{
+    background-color: black;
+    color: white;
+    opacity: 50%;
+    font-weight: normal;
+    font-size: 55PX;
+    text-align: center;
+    padding: 110X 0 40px 0;
+    margin-bottom: 1PX;
+}
+h2
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 45px;
+    color: #444444;
+    text-align: center;
+}
+h3
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: #444;
+    text-decoration: underline;
+}
+p
+{
+    line-height: 20px;
+}
+.boutton1
+{
+    display: block;
+    width: 120px;
+    height: 50px;
+    background-color: papayawhip;
+    color: black;
+    font-size: 20PX;
+    margin: 0 auto;
+    line-height: 50px;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 70px;
+} 
+.boutton1 :hover
+{
+    background-color: white;
+}
+ul, ol
+{
+    list-style: none;
+}
+.Espace
+{
+    clear: both;
+}
+.Etape
+{
+    width: 940px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+footer
+{
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 10px;
+}
+
+/*PARTIE ACCUEIL ...............HEADER*/
+header h2
+{
+    color: rgb(247, 0, 31);
+}
+#Accueil
+{
+    margin-bottom: 0;
+}
+header
+{
+    height: 45px;
+}
+Header img
+{
+    float: left;
+}
+header nav
+{
+    float: right;
+    margin-top: 10px;
+}
+header nav li
+{
+    display: inline-block;
+}
+header nav li a
+{
+    text-transform: uppercase;
+    margin-right: 20px;
+}
+
+/*PARTIE ACCUEIL ...............SECTION : GRAND MENU*/
+#GrandMenu
+{
+    height: 450px;
+    background: url("../image/Painmain.jpg") center;
+    background-repeat: no-repeat;
+    background-position: top;
+   
+}
+
+/*PARTIE ACCUEIL ...............SECTION : Boutique*/
+.grille
+{
+    max-width: 1300px;
+    width: 80%;
+    height: auto;
+    margin: 30px auto;
+    /*border: 1px solid #333;*/
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 300px);
+    justify-content: center;
+    grid-gap: 10px;
+}
+.grid-Item
+{
+    width: 300px;
+    height: 200px;
+    background: #333;
+}
+.grid-Item img
+{
+    margin-left: 50PX;
+}
+.grid-Item h5
+{
+    text-align: center;
+    text-decoration: underline;
+    color: aliceblue;
+}
+.grid-Item img:hover
+{
+    width: 300px;
+}
+
+/*PARTIE Connecter ...............SECTION : Commander*/
+.Marchandise
+{
+    display: flex;
+    margin-top: 50px;
+    overflow: auto;
+}
+.Container
+{
+    background-color: #333;
+    width: 100%;
+    height: 85vh;
+    display: FLEX;
+    justify-content: center ;
+    align-items: center;
+    animation-duration: 50s;
+    animation-name: MesProduits;
+    animation-iteration-count: infinite;
+}
+@keyframes MesProduits
+{
+    0%{
+        transform: translateX(0);
+    }
+    25%{
+        transform: translateX(-300%)
+    }
+    50%{
+        transform: translateX(-600%)
+    }
+    75%{
+        transform: translateX(-900%)
+    }
+    100%{
+        transform: translateX(0)
+    }
+}
+.Carte
+{
+    width: 250;
+    height: 400px;
+    background-color: aliceblue;
+    border-radius: 10px;
+    box-shadow: 2px 10px 12px rgb(227, 234, 233);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    box-sizing: border-box;
+    margin: 20px 10px;
+}
+.modele
+{
+    height: 220px;
+    max-height: 100%;
+    max-width: 100%;
+}
+.detail
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+}
+.detail p
+{
+    color: black;
+    text-align: center;
+    margin-top: 10px;
+}
+.detail h6
+{
+    color: black;
+    font-weight: bold;
+}
+.PainFrgd
+{
+    color: black;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin-top: 10px;
+}
+.boutonCommande
+{
+    width: 150px;
+    box-shadow: 50px;
+}
+.Macarte
+{
+background-color: aqua;
+}
+
+
+.details {
+            border: 1.5px solid grey;
+            color: #212121;
+            width: 100%;
+            height: auto;
+            box-shadow: 0px 0px 10px #212121;
+        }
+
+        .carts {
+            background-color: #212121;
+            color: white;
+            margin-top: 10px;
+            font-size: 12px;
+            font-weight: 900;
+            width: 100%;
+            height: 39px;
+            padding-top: 9px;
+            box-shadow: 0px 5px 10px  #212121;
+        }
+
+        .cards {
+            width: fit-content;
+        }
+
+        .cards-body {
+            width: fit-content;
+        }
+
+        .btns {
+            border-radius: 0;
+        }
+
+        .img-thumbnail {
+            border: none;
+        }
+
+        .cards {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
+            border-radius: 5px;
+            padding-bottom: 10px;
+        }
