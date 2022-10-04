@@ -7,6 +7,7 @@
     <meta= charset="utf-8">
         <title>Boulangerie RM Du pain Son Excellence</title>
         <link rel="stylesheet" href="{{asset('css/Style.css')}}">
+        <link rel="stylesheet" href="{{asset('css/Style2.css')}}">
         <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/all.css')}}">
         <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
@@ -96,6 +97,7 @@
     </div>
 
     <script src="{{mix('js/app.js')}}"></script>
+    @yield('script')
 
 </body>
 

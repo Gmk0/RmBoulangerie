@@ -18,7 +18,8 @@ Route::get('/', [App\Http\Controllers\HomeUser::class, 'index'])->name('home.use
 
 Route::get('/boutique', [App\Http\Controllers\HomeUser::class, 'boutique'])->name('boutique.user');
 
-Route::get('/boutique/{id}', [App\Http\Controllers\HomeUser::class, 'addCart'])->name('cart.user')->middleware('auth');;
+Route::get('/boutique/{id}', [App\Http\Controllers\HomeUser::class, 'addCart'])->name('cart.user')->middleware('auth');
+Route::get('/checkout', [App\Http\Controllers\HomeUser::class, 'checkout'])->name('checkout')->middleware('auth');
 
 Auth::routes();
 

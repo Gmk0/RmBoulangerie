@@ -35,12 +35,18 @@ class HomeUser extends Controller
     public function addCart($id)
     {
         $products = product::find($id);
-        $oldCart = Session::has('cart')? Session::get('cart'):null;
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
-        $cart->add($products,$id);
-        Session::put('cart',$cart);
+        $cart->add($products, $id);
+        Session::put('cart', $cart);
 
         return redirect()->route('boutique.user');
+    }
 
+    public function checkout()
+    {
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
+        return view('user.checkout', ['products' => $cart->items]);
     }
 }

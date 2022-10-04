@@ -38,36 +38,7 @@
 
 
             <!-- Notifications -->
-            <div class="dropdown">
-                <a class="text-reset me-3 dropdown-toggle " href="#" id="navbarDropdownMenuLink" role="button"
-                    data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fas fa-shopping-cart"></i>[  <span class="">{{Session::has('cart')? Session::get('cart')->totalQty:0}}</span>]
-                </a> 
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
-                @if(Session::has('cart'))
-                  <li>
-                       @foreach (Session::get('cart')->items as $item)
-                           <div class="d-flex p-2 justify-content-around">
-                                 <h6 class="p-1">
-                                
-                                <img src="{{('image/PainBle.jpeg')}}" width="30" class="img-fluid" alt="image desc">
-                              
-                    </h6>
-                           <h6 class="p-1">{{$item['name']}}</h6>
-                           <h6 class="p-1">{{$item['price']}}</h6>
-                           <h6 class="p-1">{{$item['quantity']}}</h6>
-                      
-                           
-                           </div>
-                       @endforeach
-                    </li>
-        
-
-
-                @endif
-                  
-                </ul>
-            </div>
+            <x-cart />
             @guest
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
