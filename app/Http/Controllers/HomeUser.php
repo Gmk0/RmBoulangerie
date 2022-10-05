@@ -49,4 +49,17 @@ class HomeUser extends Controller
         $cart = new Cart($oldCart);
         return view('user.checkout', ['products' => $cart->items]);
     }
+
+    public function update_cart(Request $request)
+    {
+        dd($request->id );
+        if($request->id && $request->quantity){
+            $oldCart = Session::has('cart') ? Session::get('cart') : null;
+            $cart = new Cart($oldCart);
+            $cart->updateQty($request->id, $request->quantity);
+            Session::put('cart', $cart);
+        }
+   
+
+    }
 }

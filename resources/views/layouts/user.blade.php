@@ -4,10 +4,15 @@
 <!--L'en-tête de la page index-->
 
 <head>
-    <meta= charset="utf-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}">
         <title>Boulangerie RM Du pain Son Excellence</title>
+        <script src="{{asset('js/jquery.min.js')}}"></script>
+        <script src="{{asset('js/jquery-3.2.1.min.js')}}" defer></script>
         <link rel="stylesheet" href="{{asset('css/Style.css')}}">
-        <link rel="stylesheet" href="{{asset('css/Style2.css')}}">
+        <link rel="stylesheet" href="{{asset('css/style2.css')}}">
         <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
         <link rel="stylesheet" href="{{asset('css/all.css')}}">
         <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
@@ -67,7 +72,15 @@
 
 
     <script src="{{mix('js/app.js')}}"></script>
-    @yield('script')
+  
+    <script >
+    $.ajaxSetup({
+        headers: {
+            'X-CSFR-TOKEN': $('meta[name="csfr-token"]').attr('content')
+        }
+    });
+    </script>
+    @yield('scripts')
 
 </body>
 
