@@ -94,19 +94,13 @@
     </div>
 
     @livewireScripts()
+
     @stack('scripts')
 
     <script src="{{mix('js/app.js')}}"></script>
 
-
-    <script>
-        $.ajaxSetup({
-            headers: {
-                'X-CSFR-TOKEN': $('meta[name="csfr-token"]').attr('content')
-            }
-        });
-    </script>
     @yield('scripts')
+
 </body>
 
 </html>

@@ -1,4 +1,4 @@
 require("./bootstrap");
 
-window.toastr = require('toastr');
-window.$ = require('jquery');
+window.toastr = require("toastr");
+window.$ = require("jquery");

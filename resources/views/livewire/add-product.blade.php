@@ -103,7 +103,7 @@
                         <td class="align-middle">
                             <button wire:click="update({{$item['id']}})" class="btn btn-outline-primary"><i
                                     class="fa fa-edit" aria-hidden="true"></i></button>
-                            <button wire:click="update({{$item['id']}})" class="btn btn-outline-danger"><i
+                            <button wire:click="delete({{$item['id']}})" class="btn btn-outline-danger"><i
                                     class="fa fa-trash" aria-hidden="true"></i></button>
                         </td>
 
@@ -119,30 +119,31 @@
         </div>
 
     </div>
-</div>
 
-@push('scripts')
 
-<script>
-    window.addEventListener('success', event=> {
-        $('#modalId').modal('hide');
-    toastr.success(event.detail.message)
 
-    
-    });
 
-    window.addEventListener('erro', event=> {
+    <script>
+        window.addEventListener('success', event=> {
+                    
+                    toastr.success(event.detail.message)
+                    
+                    
+                    });
+
+     window.addEventListener('error', event=> {
     $('#modalId').modal('hide');
     toastr.error(event.detail.message)
-    
-    
+      
     });
     window.addEventListener('show', event=> {
     $('#modalId').modal('show');
-    
-    
-    
-    });
-</script>
 
-@endpush
+    });
+        
+
+
+
+    </script>
+
+</div>

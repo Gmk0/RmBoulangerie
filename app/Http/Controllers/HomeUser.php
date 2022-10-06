@@ -27,7 +27,8 @@ class HomeUser extends Controller
         return view(
             'user.boutique',
             [
-                'product' => product::paginate(10)
+                'product' => product::paginate(8)
+
             ]
         );
     }
