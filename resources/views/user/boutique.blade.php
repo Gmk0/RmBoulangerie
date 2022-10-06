@@ -10,36 +10,9 @@
 <div class="container">
     <H2>Boutique</H2>
 
-    <div class="row">
-        @forelse ($product as $item)
 
+    @livewire('shop-product')
 
-        <div class="col-md-3 col-lg-3">
-            <div class="img-thumbnail">
-                <img src="{{asset('image/PainBle.jpeg')}}" class="img-fluid" alt="...">
-                <div class="price">
-                    {{$item->price}}
-                </div>
-                <div class="caption">
-                    <h4>
-                        {{$item->name}}
-                    </h4>
-                    <p>
-                        {{$item->name}}
-                    </p>
-                    <a href="{{route('cart.user',[$item->id])}}" class="btn btn-order" role="button"><span
-                            class="bi-cart-fill"></span> AJOUTER</a>
-                </div>
-            </div>
-        </div>
-
-
-
-        @empty
-        p>Product not found</p>
-        @endforelse
-
-    </div>
 
     {{-- @forelse ($product as $product)
     <div class='container-fluid'>
@@ -69,20 +42,7 @@
     <p>Product not found</p>
     @endforelse--}}
 
-    <div class="row mt-5">
-        <div class="col text-center">
-            <div class="block-27">
-                <ul>
 
-
-
-
-                </ul>
-
-
-            </div>
-        </div>
-    </div>
 
 </div>
 

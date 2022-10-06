@@ -8,16 +8,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>Boulangerie RM Du pain Son Excellence</title>
-        <script src="{{asset('js/jquery.min.js')}}"></script>
-        <script src="{{asset('js/jquery-3.2.1.min.js')}}" defer></script>
-        <link rel="stylesheet" href="{{asset('css/Style.css')}}">
-        <link rel="stylesheet" href="{{asset('css/style2.css')}}">
-        <link rel="stylesheet" href="{{asset('css/all.min.css')}}">
-        <link rel="stylesheet" href="{{asset('css/all.css')}}">
-        <link rel="stylesheet" href="{{asset('css/fontawesome.css')}}">
-        <link rel="stylesheet" href="{{mix('css/app.css')}}">
-        <script src="{{asset('js/all.js')}}"></script>
+    <title>Boulangerie RM Du pain Son Excellence</title>
+
+    <link rel="stylesheet" href="{{asset('css/Style.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/style2.css')}}">
+
+    <link rel="stylesheet" href="{{mix('css/app.css')}}">
+
+    <link rel="stylesheet" href="{{asset('css/toastr.css')}}">
+
+    <style>
+
+    </style>
+
+    @livewireStyles
 </head>
 
 <!--Le corps de la page index-->
@@ -70,17 +75,21 @@
     </div>
     <x-footer />
 
+    @livewireScripts()
+    @stack('scripts')
 
     <script src="{{mix('js/app.js')}}"></script>
-  
-    <script >
-    $.ajaxSetup({
+
+
+    <script>
+        $.ajaxSetup({
         headers: {
             'X-CSFR-TOKEN': $('meta[name="csfr-token"]').attr('content')
         }
     });
     </script>
     @yield('scripts')
+
 
 </body>
 

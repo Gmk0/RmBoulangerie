@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\product;
 use Illuminate\Http\Request;
-use Session;
+use Illuminate\Support\Facades\Session;
 use App\Cart;
 
 class HomeUser extends Controller
@@ -52,14 +52,17 @@ class HomeUser extends Controller
 
     public function update_cart(Request $request)
     {
-        dd($request->id );
-        if($request->id && $request->quantity){
+        dd($request->id);
+        if ($request->id && $request->quantity) {
             $oldCart = Session::has('cart') ? Session::get('cart') : null;
             $cart = new Cart($oldCart);
             $cart->updateQty($request->id, $request->quantity);
             Session::put('cart', $cart);
         }
-   
+    }
 
+    public function addProduct()
+    {
+        return view("product");
     }
 }

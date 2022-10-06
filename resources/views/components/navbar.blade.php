@@ -33,12 +33,12 @@
         <!-- Collapsible wrapper -->
 
         <!-- Right elements -->
-        <div class="d-flex align-items-center">c
+        <div class="d-flex align-items-center">
             <!-- Icon -->
 
 
             <!-- Notifications -->
-            <x-cart />
+            @livewire('header-cart')
             @guest
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
