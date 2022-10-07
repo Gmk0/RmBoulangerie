@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\Orders;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,6 +21,7 @@ Route::get('/boutique', [App\Http\Controllers\HomeUser::class, 'boutique'])->nam
 
 Route::get('/add-to-cart/{id}', [App\Http\Controllers\HomeUser::class, 'addCart'])->name('cart.user')->middleware('auth');
 Route::get('/checkout', [App\Http\Controllers\HomeUser::class, 'checkout'])->name('checkout')->middleware('auth');
+Route::get('/orders', Orders::class)->name('orders')->middleware('auth');
 Route::get('/addProduct/user', [App\Http\Controllers\HomeUser::class, 'addProduct'])->name('addProduct')->middleware('auth');
 
 

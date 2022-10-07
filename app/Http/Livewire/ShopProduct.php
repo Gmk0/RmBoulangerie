@@ -14,6 +14,15 @@ class ShopProduct extends Component
 
     use WithPagination;
 
+    protected $listeners = ['success' => 'success'];
+
+    public function success()
+    {
+        if (session::has('success')) {
+            $this->dispatchBrowserEvent('success', ['message' => 'le paiement a ete bien effectuer']);
+        }
+    }
+
 
 
 

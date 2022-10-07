@@ -78,7 +78,8 @@
 
                     <div class="card">
                         <div class="card-body">
-                            <button type="button" class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
+                            <button type="button" data-bs-toggle="modal" data-bs-target="#modalId"
+                                class="btn btn-warning btn-block btn-lg">Proceed to Pay</button>
                         </div>
                     </div>
 
@@ -86,6 +87,77 @@
             </div>
             @endif
         </div>
+
+        <!-- Button trigger modal -->
+
+
+        <!-- Modal -->
+        <div wire:ignore.self class="modal fade" id="modalId" tabindex="-1" role="dialog" aria-labelledby="modalTitleId"
+            aria-hidden="true">
+            <div class="modal-dialog modal-md" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalTitleId">PAIEMENT</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+                    </div>
+                    <div class="modal-body">
+                        <form class="row" wire:submit.prevent="payer">
+                            <div class="col-md-6">
+                                <label for="validationCustom01" class="form-label">First name</label>
+                                <input type="text" class="form-control" id="validationCustom01"
+                                    value="{{Auth::user()->last_name}}" required>
+                                <div class="valid-feedback">s
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="validationCustom01" class="form-label">Adresses</label>
+                                <input type="text" class="form-control" value="" wire:model.defer="orders.addresse">
+                                <span class="text-danger">@error('orders.addresse')
+                                    {{$message}}@enderror</span>
+                                <div class="valid-feedback">
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="validationCustom01" class="form-label">Total Price</label>
+                                <input type="text" class="form-control" id="validationCustom01"
+                                    value="{{Session('cart')->totalPrice}} CDF" required>
+                                <div class="valid-feedback">
+
+                                </div>
+                            </div>
+
+                            <div class="col-12">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="invalidCheck"
+                                        wire:model.defer="orders.terms">
+                                    <label class="form-check-label" for="invalidCheck">
+                                        Agree to terms and conditions
+                                    </label>
+                                    <span class="text-danger">@error('orders.terms')
+                                        {{$message}}@enderror</span>
+                                    <div class="invalid-feedback">
+                                        You must agree before submitting.
+                                    </div>
+                                </div>
+                            </div>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="SUBMIT" class="btn btn-primary" wire:loading.attr='disabled'>Payer</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
 </div>
 
 @push('scripts')

@@ -29,7 +29,10 @@
 
 <body>
 
-    <div class="container-fluid">
+
+
+
+    {{--<div class="container-fluid">
         <div id="Accueil">
 
 
@@ -56,7 +59,7 @@
                 </nav>
                 <h2><strong>Ets Rachel Mashi</strong></h2>
 
-            </Header>--}}
+            </Header>-
 
             <!--la prémière section du corps-->
 
@@ -72,6 +75,14 @@
 
         </div>
 
+    </div>--}}
+
+    <div id="app">
+        <x-navbar />
+
+        <main class="py-1">
+            @yield('content')
+        </main>
     </div>
     <x-footer />
 
