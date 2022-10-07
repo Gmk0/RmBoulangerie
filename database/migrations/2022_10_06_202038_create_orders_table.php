@@ -17,6 +17,8 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->string('adresse');
             $table->string('payement_id');
+            $table->mediumText('panier');
+
             $table->decimal('totalPrice');
             $table->foreignId('user_id')->constrained()->cascadeOnDelete();
             $table->timestamps();

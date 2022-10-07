@@ -17,17 +17,11 @@ class orders extends Model
         return $this->BelongsTo(User::class);
     }
 
-    public function orderLines(): HasMany
-    {
-        return $this->HasMany(orderLines::class);
-    }
+
 
     /**
      *@var array
      */
 
-    protected $casts = [
-        'panier' => 'array',
-
-    ];
+    
 }

@@ -27,7 +27,7 @@
 
 <!--Le corps de la page index-->
 
-<body>
+<body class="d-flex flex-column min-vh-100">
 
 
 
@@ -77,13 +77,13 @@
 
     </div>--}}
 
-    <div id="app">
-        <x-navbar />
 
-        <main class="py-1">
-            @yield('content')
-        </main>
-    </div>
+    <x-navbar />
+
+    <main class="py-1">
+        @yield('content')
+    </main>
+
     <x-footer />
 
     @livewireScripts()

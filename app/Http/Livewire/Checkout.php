@@ -12,6 +12,7 @@ use Auth;
 class Checkout extends Component
 {
     public $orders = [];
+    public $panier = "";
 
     public function updateQty($id, $quantity)
     {
@@ -64,30 +65,26 @@ class Checkout extends Component
         $id = Auth::user()->id;
         $total = Session::get('cart')->totalPrice;
 
+
+
+
+
         $orders = new orders;
 
         $orders->adresse = $this->orders['addresse'];
         $orders->payement_id = "120";
+        $orders->panier = serialize($cart);
         $orders->totalPrice = $total;
         $orders->user_id = $id;
         $success = $orders->save();
-        
 
-        foreach ($cart->items as $value) {
-            $orderLines = new orderLines;
-            $orderLines->product_id = $value['id'];
-            $orderLines->quantity = $value['quantity'];
-            $orderLines->priceUnit = $value['price'];
-            $orderLines->order_id =  $orders->id;
-            $orderLines->save();
-            
-        };
+
+
 
         if ($success == true) {
             $this->dispatchBrowserEvent('success', ['message' => "le paiement a ete bien effectuer"]);
             Session::forget('cart');
             return redirect()->route('orders');
-                    }
-
+        }
     }
 }

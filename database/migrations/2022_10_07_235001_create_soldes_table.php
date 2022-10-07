@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrderLinesTable extends Migration
+class CreateSoldesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateOrderLinesTable extends Migration
      */
     public function up()
     {
-        Schema::create('order_lines', function (Blueprint $table) {
+        Schema::create('soldes', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id');
-            $table->integer('quantity');
-            $table->integer('priceUnit');
-            $table->foreignId('order_id');
+            $table->bigInteger('solde');
+            $table->bigInteger('dette');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateOrderLinesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('order_lines');
+        Schema::dropIfExists('soldes');
     }
 }

@@ -6,12 +6,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
-class orderLines extends Model
+class solde extends Model
 {
     use HasFactory;
 
-    public function orders(): BelongsTo
+    public function user(): BelongsTo
     {
-        return $this->BelongsTo(orders::class);
+        return $this->BelongsTo(User::class);
     }
+
 }

@@ -9,8 +9,14 @@ class Orders extends Component
 {
     public function render()
     {
+        $orders = ModelsOrders::get();
+        $orders->transform(function ($order, $key) {
+            $order->panier = unserialize($order->panier);
+            return $order;
+        });
+
         return view('livewire.orders', [
-            'Panier' => ModelsOrders::all(),
+            'Panier' => $orders,
 
         ])->extends('layouts.user')
             ->section('content');

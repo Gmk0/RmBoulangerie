@@ -1,45 +1,48 @@
 <div>
 
     <div>
-
+        <h2 class="">achat effectuer</h2>
     </div>
 
-    <div class="table-responsive-md p-4 m-2">
-        <table class="table table-striped
-    table-hover	
-    table-borderless
-    align-middle">
-            <thead class="">
-                <caption>Table Name</caption>
-                <tr>
-                    <th> N1</th>
-                    <th>Client</th>
-                    <th> Panier</th>
-                    <th> Price</th>
-                    <th> Date</th>
-                </tr>
+    <div class="m-2">
 
-                uantity
-            </thead>
-            <tbody class="table-group-divider">
-                @forelse ( $Panier as $item)
-                <tr class="">
-                    <td scope="row">Item</td>
-                    <td>{{$item->user->name}}</td>
-                    <td>
-                    </td>
-                    <td>{{$item->totalPrice}}</td>
-                    <td>{{$item->created_at}}</td>
-                </tr>
-                @empty
+        <div class="table-responsive-md p-4 m-2">
+            <table class="table table-striped">
+                <thead class="">
+                    <tr>
+                        <th> N1</th>
+                        <th>Client</th>
+                        <th> Panier</th>
+                        <th> Price</th>
+                        <th> Date</th>
+                    </tr>
 
-                @endforelse
+                </thead>
+                <tbody class="table-group-divider">
+                    @forelse ( $Panier as $item)
+                    <tr class="">
+                        <td scope="row">{{$item->id}}</td>
+                        <td>{{$item->user->name}}</td>
+                        <td>
+                            @foreach ($item->panier->items as $items)
+                            {{$items['name'].', ' }}
+                            @endforeach
 
-            </tbody>
-            <tfoot>
+                        </td>
+                        <td>{{$item->totalPrice}}</td>
+                        <td>{{$item->created_at}}</td>
+                    </tr>
+                    @empty
 
-            </tfoot>
-        </table>
+                    @endforelse
+
+                </tbody>
+                <tfoot>
+
+                </tfoot>
+            </table>
+        </div>
+
     </div>
 
 
