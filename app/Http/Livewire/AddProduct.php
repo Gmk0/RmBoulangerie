@@ -48,7 +48,7 @@ class AddProduct extends Component
         product::insert($data);
         $this->dispatchBrowserEvent('success', ['message' => 'le produit a ete ajouté']);
         $this->product = [];
-        $this->imageName = [];
+        $this->imageName = "";
     }
 
     public function updateTo($id)

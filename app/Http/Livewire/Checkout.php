@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
 use App\Cart;
+use App\Models\orderLines;
 use App\Models\orders;
 use Auth;
 
@@ -58,26 +59,35 @@ class Checkout extends Component
             'orders.addresse' => "required",
             "orders.terms" => "accepted"
         ]);
-        $cart = Session::has('cart') ? Session::get('cart') : null;
+        $oldCart = Session::has('cart') ? Session::get('cart') : null;
+        $cart = new Cart($oldCart);
         $id = Auth::user()->id;
         $total = Session::get('cart')->totalPrice;
 
         $orders = new orders;
+
         $orders->adresse = $this->orders['addresse'];
-        $orders->panier = json_encode($cart->items);
         $orders->payement_id = "120";
-
         $orders->totalPrice = $total;
-
         $orders->user_id = $id;
         $success = $orders->save();
+        
+
+        foreach ($cart->items as $value) {
+            $orderLines = new orderLines;
+            $orderLines->product_id = $value['id'];
+            $orderLines->quantity = $value['quantity'];
+            $orderLines->priceUnit = $value['price'];
+            $orderLines->order_id =  $orders->id;
+            $orderLines->save();
+            
+        };
+
         if ($success == true) {
             $this->dispatchBrowserEvent('success', ['message' => "le paiement a ete bien effectuer"]);
             Session::forget('cart');
+            return redirect()->route('orders');
+                    }
 
-            return redirect()->route('boutique.user')->with('status', 'LE paiement a ete bien effectuer');
-        } else {
-            $this->dispatchBrowserEvent('error', ['message' => 'le produit a ete ajouté']);
-        }
     }
 }
