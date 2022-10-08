@@ -31,9 +31,10 @@ class User extends Authenticatable
         return $this->HasMany(orders::class);
     }
 
-    public function solde(): HasOne
+
+    public function solde(): HasMany
     {
-        return $this->HasOne(solde::class);
+        return $this->HasMany(solde::class);
     }
 
     /**

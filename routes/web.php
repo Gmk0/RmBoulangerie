@@ -23,6 +23,7 @@ Route::get('/add-to-cart/{id}', [App\Http\Controllers\HomeUser::class, 'addCart'
 Route::get('/checkout', [App\Http\Controllers\HomeUser::class, 'checkout'])->name('checkout')->middleware('auth');
 Route::get('/orders', Orders::class)->name('orders')->middleware('auth');
 Route::get('/addProduct/user', [App\Http\Controllers\HomeUser::class, 'addProduct'])->name('addProduct')->middleware('auth');
+Route::get('/addsolde/user', [App\Http\Controllers\HomeUser::class, 'solde'])->name('solde')->middleware('auth');
 
 
 Auth::routes();

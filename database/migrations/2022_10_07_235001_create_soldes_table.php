@@ -16,7 +16,9 @@ class CreateSoldesTable extends Migration
         Schema::create('soldes', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('solde');
-            $table->bigInteger('dette');
+            $table->bigInteger('libelle');
+            $table->string('code');
+            $table->boolean('status');
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });

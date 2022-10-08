@@ -66,4 +66,8 @@ class HomeUser extends Controller
     {
         return view("product");
     }
+    public function solde()
+    {
+        return view("soldeUser");
+    }
 }
