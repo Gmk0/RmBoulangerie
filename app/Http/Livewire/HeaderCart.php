@@ -5,13 +5,14 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Illuminate\Support\Facades\Session;
 use App\Cart;
-
-
+use App\Models\solde;
+use Illuminate\Support\Facades\Auth;
 
 class HeaderCart extends Component
 {
     protected $listeners = ['refreshComponent' => '$refresh'];
     public  $products;
+    public $code;
 
 
 
@@ -21,6 +22,9 @@ class HeaderCart extends Component
         $cart = new Cart($oldCart);
         $this->products
             = $cart->items;
+        $this->code = solde::where('user_id', Auth::user()->id)
+            ->where('status', 0)
+            ->get();
 
         return view('livewire.header-cart');
     }

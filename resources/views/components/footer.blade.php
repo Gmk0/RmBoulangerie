@@ -84,7 +84,7 @@
         <!-- Copyright -->
         <div class="text-center text-dark p-2" style="background-color: rgba(0, 0, 0, 0.2);">
             © 2020 Copyright:
-            <a class="text-dark" href="">Sell Design /  +243 811 303 041</a>
+            <a class="text-dark" href="">Sell Design / +243 811 303 041</a>
         </div>
         <!-- Copyright -->
     </footer>

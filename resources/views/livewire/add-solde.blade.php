@@ -15,6 +15,22 @@
                 </div>
                 <div class="modal-body">
 
+                    <form class="row" wire:submit.prevent="searchId">
+                        <div class="col-md-6">
+                            <label for="validationCustom01" class="form-label">users id</label>
+                            <input type="text" class="form-control" value="Mark" required wire:model.defer="search">
+
+                        </div>
+
+                        <div class="col-md-3 py-4">
+                            <label for="validationCustom01" class="form-label"></label>
+                            <button type="submit" class="btn btn-primary" wire:loading.attr='disabled'>FInd</button>
+
+                        </div>
+
+
+                    </form>
+
 
                     <form class="row " wire:submit.prevent="register">
                         <div class="col-md-6">
@@ -22,11 +38,7 @@
                             <input type="text" class="form-control" value="Mark" required wire:model="user.name">
 
                         </div>
-                        <div class="col-md-6">
-                            <label for="validationCusto2" class="form-label">montant</label>
-                            <input type="text" class="form-control" ivalue="Otto" required>
 
-                        </div>
                         <div class="col-md-6">
                             <label for="validationCustom0" class="form-label">montant</label>
                             <input type="text" class="form-control" value="Otto" required wire:model.defer="montant">
@@ -80,7 +92,14 @@
                         <td scope="row">{{$item->id}}</td>
                         <td>{{$item->user->name}}</td>
 
-                        <td>{{$item->montant}}</td>
+                        <td>{{$item->solde}}</td>
+                        <td>
+                            @if($item->status ==0)
+                            <span class="badge rounded-pill text-bg-warning">non approuve</span>
+                            @else
+                            <span class="badge rounded-pill text-bg-success">approuvé</span>
+                            @endif
+                        </td>
 
                         <td class="align-middle">
                             <button wire:click="update({{$item['id']}})" class="btn btn-outline-primary"><i
@@ -108,20 +127,21 @@
     <script>
         window.addEventListener('success', event=> {
                     
-                    toastr.success(event.detail.message)
-                    
+                   
+                    toastr.options = ({
+                    "closeButton":true,
+                    "positionClass":"toast-bottom-right",
                     
                     });
+                    toastr.success(event.detail.message);
+     });
 
      window.addEventListener('error', event=> {
-    $('#modalId').modal('hide');
+  
     toastr.error(event.detail.message)
       
     });
-    window.addEventListener('show', event=> {
-    $('#modalId').modal('show');
 
-    });
         
 
 

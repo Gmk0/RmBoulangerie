@@ -1,18 +1,3 @@
-{{--<section id="GrandMenu">
-    <h1>BOULANGERIE RM<span class="Orange">.</span><br>Pain Son Excellence </BR>
-    </h1>
-    <marquee behavior="alternate" direction="left" bgcolor="BLEU">La croissance autravers le vrai blé
-    </marquee>
-    @guest
-    <a href="{{route('login')}}" class="boutton1"
-        title="Connectez-vous pour acceder à votre compte et si vous en avez pas, créez-en!">Connexion</a>
-    @endguest
-
-</section>
---}}
-
-
-<!-- Carousel wrapper -->
 <div id="carouselBasicExample" class="carousel slide carousel-fade" data-bs-ride="carousel">
     <!-- Indicators -->
     <div class="carousel-indicators">

@@ -5,10 +5,10 @@
             <a class="nav-link" href="{{ route('boutique.user') }}">{{ __('BOUTIQUE') }}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">{{ __('Point de vente') }}</a>
+            <a class="nav-link" href="{{ route('about') }}">{{ __('Point de vente') }}</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{ route('login') }}">{{ __('contact') }}</a>
+            <a class="nav-link" href="{{ route('about') }}">{{ __('contact') }}</a>
         </li>
     </ul>
 
@@ -88,13 +88,43 @@
         </li>
         @auth
         <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="font-weight-bold nav-link dropdown-toggle" href="#" role="button"
+                data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fa fa-money" aria-hidden="true"></i>
+                {{auth::user()->solde}}
+            </a>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+
+                <div class="row m-1 p-1">
+                    <ul>
+                        @foreach ($code as $item)
+                        <li>{{$item->code}}</li>
+
+                        @endforeach
+                        <li></li>
+                    </ul>
+                </div>
+                <div class="row m-1 p-1">
+                    <a href="{{route('transaction')}}" class="btn btn-outline-primary"> versement</a>
+                </div>
+
+
+
+
+
+
+            </div>
+
+
+        </li>
+        <li class="nav-item dropdown">
             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false" v-pre>
                 {{ Auth::user()->name }}
             </a>
 
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="">
+                <a class="dropdown-item" href="{{ route('profile')}}">
                     {{ __('Profile') }}
                 </a>
                 <a class="dropdown-item" href="{{ route('orders')}}">
@@ -115,28 +145,7 @@
         </li>
 
 
-        <li class="nav-item dropdown">
-            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false" v-pre>
-                <i class="fa fa-money" aria-hidden="true"></i>
-                {{auth::user()->solde}}
-            </a>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
 
-
-                <div class="row m-1 p-1">
-                    <a href="{{route('checkout')}}" class="btn btn-outline-primary"> versement</a>
-                </div>
-
-
-
-
-
-
-            </div>
-
-
-        </li>
         @endauth
 
     </ul>

@@ -30,57 +30,9 @@
 <body class="d-flex flex-column min-vh-100">
 
 
-
-
-    {{--<div class="container-fluid">
-        <div id="Accueil">
-
-
-            <x-navbar />
-
-
-
-
-            <!-- Navbar -->
-
-            <!-- Navbar -->
-            {{-- <Header>
-                <img src="{{asset('image/IsraelLogo.jpg')}}" alt="logoRm" width="150" heidht="200">
-                <nav>
-                    <ul>
-                        <li><a href="#Accueil" title="Retourner à l'accueil">Accueil</a></li>
-                        <li><a href="#Boutique" title="Visiter la boutique du boulanger">Boutique</a></li>
-                        <li><a href="#BasDePage" title="Découvrir l'idéal du site">Qui sommes-nous</a></li>
-                        <li><a href="mailto:balumeisrael1@gmail.com"
-                                title="Demander de l'aide à l'adresse : balumeisrael1@gmail.com">Aide</a></li>
-
-
-                    </ul>
-                </nav>
-                <h2><strong>Ets Rachel Mashi</strong></h2>
-
-            </Header>-
-
-            <!--la prémière section du corps-->
-
-
-            <!--Lasection boutique-->
-
-
-            @yield('content')
-
-
-
-            <!--Le pied de page-->
-
-        </div>
-
-    </div>--}}
-
-
     <x-navbar />
 
-    <main class="py-1">
+    <main class="">
         @yield('content')
     </main>
 

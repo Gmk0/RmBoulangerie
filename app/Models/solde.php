@@ -9,6 +9,14 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 class solde extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        "solde",
+        "libelle",
+        "code",
+        "status",
+        "user_id",
+    ];
+
 
     public function user(): BelongsTo
     {

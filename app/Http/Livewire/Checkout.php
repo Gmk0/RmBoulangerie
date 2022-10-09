@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Session;
 use App\Cart;
 use App\Models\orderLines;
 use App\Models\orders;
+use App\Models\User;
 use Auth;
 
 class Checkout extends Component
@@ -63,28 +64,32 @@ class Checkout extends Component
         $oldCart = Session::has('cart') ? Session::get('cart') : null;
         $cart = new Cart($oldCart);
         $id = Auth::user()->id;
+        $solde = Auth::user()->solde;
         $total = Session::get('cart')->totalPrice;
 
+        if ($solde > $total) {
+            $orders = new orders;
+
+            $orders->adresse = $this->orders['addresse'];
+            $orders->payement_id = "120";
+            $orders->panier = serialize($cart);
+            $orders->totalPrice = $total;
+            $orders->user_id = $id;
+            $success = $orders->save();
+            $user = User::find($id);
+            $user->solde -= $total;
+            $user->update();
 
 
 
 
-        $orders = new orders;
-
-        $orders->adresse = $this->orders['addresse'];
-        $orders->payement_id = "120";
-        $orders->panier = serialize($cart);
-        $orders->totalPrice = $total;
-        $orders->user_id = $id;
-        $success = $orders->save();
-
-
-
-
-        if ($success == true) {
-            $this->dispatchBrowserEvent('success', ['message' => "le paiement a ete bien effectuer"]);
-            Session::forget('cart');
-            return redirect()->route('orders');
+            if ($success == true) {
+                $this->dispatchBrowserEvent('success', ['message' => "le paiement a ete bien effectuer"]);
+                Session::forget('cart');
+                return redirect()->route('orders');
+            }
+        } else {
+            $this->dispatchBrowserEvent('error', ['message' => "solde insuffissant"]);
         }
     }
 }

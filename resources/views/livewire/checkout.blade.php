@@ -29,7 +29,7 @@
                                 </div>
                                 <div class="col-md-3 col-lg-3 col-xl-3">
                                     <p class="lead fw-normal mb-2">{{$item['name']}}</p>
-                                    <p><span class="text-muted">price: {{$item['price']}} $</span>
+                                    <p><span class="text-muted">price: {{$item['price']}} CDF</span>
                                     </p>
                                 </div>
                                 <div class="col-md-3 col-lg-3 col-xl-2 d-flex parent">
@@ -47,7 +47,7 @@
                                 </div>
                                 <div class=" col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                     <h5 class="mb-0">
-                                        ${{$total }}
+                                        {{$total }} CDF
 
 
                                     </h5>
@@ -70,7 +70,7 @@
                         <div class="card-body p-4 d-flex flex-row">
                             <div class="form-outline flex-fill">
                                 <label for=""></label>
-                                <H2>TOTAL : {{Session('cart')->totalPrice}} $</H2>
+                                <H2>TOTAL : {{Session('cart')->totalPrice}} CDF</H2>
                             </div>
 
                         </div>
@@ -101,6 +101,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 
                     </div>
+                    @if(Session::has('cart'))
+
                     <div class="modal-body">
                         <form class="row" wire:submit.prevent="payer">
                             <div class="col-md-6">
@@ -108,6 +110,14 @@
                                 <input type="text" class="form-control" id="validationCustom01"
                                     value="{{Auth::user()->last_name}}" required>
                                 <div class="valid-feedback">s
+                                    Looks good!
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="validationCustom01" class="form-label">Solde</label>
+                                <input type="text" class="form-control" id="solde" value="{{Auth::user()->solde}}"
+                                    disabled required>
+                                <div class="valid-feedback">
                                     Looks good!
                                 </div>
                             </div>
@@ -122,7 +132,7 @@
                             </div>
                             <div class="col-md-12">
                                 <label for="validationCustom01" class="form-label">Total Price</label>
-                                <input type="text" class="form-control" id="validationCustom01"
+                                <input type="text" class="form-control" id="total"
                                     value="{{Session('cart')->totalPrice}} CDF" required>
                                 <div class="valid-feedback">
 
@@ -146,9 +156,11 @@
 
 
                     </div>
+                    @endif
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="SUBMIT" class="btn btn-primary" wire:loading.attr='disabled'>Payer</button>
+                        <button type="SUBMIT" id="submit" class="btn btn-primary"
+                            wire:loading.attr='disabled'>Payer</button>
                     </div>
                     </form>
                 </div>
@@ -164,11 +176,24 @@
 <script>
     function update(id,quantity)
     {
-        @this.updateQty(id, quantity)
-        
-        
-        
+        @this.updateQty(id, quantity)   
     }
+
+   window.addEventListener('error', event=> {
+    
+    
+    
+    Swal.fire({
+    icon:'warning',
+    title:"operation faild",
+    text:event.detail.message,
+    showConfirmButton: true,
+    timer:3000
+    
+    });
+    
+    
+    });
     
 </script>
 

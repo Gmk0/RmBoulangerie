@@ -13,9 +13,14 @@
 <div class="grille">
 
     @forelse ($product as $item)
-    <div class="grid-Item">
-        <H5>{{$item->name}}</H5>
-        <img src="{{asset('/storage/product_images/'.$item->image)}}" alt="le pain" width="210" heidht="300">
+
+
+    <div class="card">
+        <img class="card-img-top img-thumbnail" src="{{asset('/storage/product_images/'.$item->image)}}" alt="">
+        <div class="card-body">
+            <h5 class="card-title">{{$item->name}}</h5>
+            <p class="card-text">{{$item->price}} CDF</p>
+        </div>
     </div>
     @empty
     <p>Product not found</p>

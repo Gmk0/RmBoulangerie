@@ -6,6 +6,8 @@ use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Cart;
+use App\Mail\sendMail;
+use Illuminate\Support\Facades\Mail;
 
 class HomeUser extends Controller
 {
@@ -69,5 +71,9 @@ class HomeUser extends Controller
     public function solde()
     {
         return view("soldeUser");
+    }
+    public function about()
+    {
+        return view("user.about");
     }
 }
