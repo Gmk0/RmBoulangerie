@@ -22,9 +22,14 @@ class HeaderCart extends Component
         $cart = new Cart($oldCart);
         $this->products
             = $cart->items;
-        $this->code = solde::where('user_id', Auth::user()->id)
-            ->where('status', 0)
-            ->get();
+
+        if (Auth::user()) {
+            $this->code = solde::where('user_id', Auth::user()->id)
+                ->where('status', 0)
+                ->get();
+        }
+
+
 
         return view('livewire.header-cart');
     }

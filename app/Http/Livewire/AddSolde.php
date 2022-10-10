@@ -49,7 +49,7 @@ class AddSolde extends Component
 
         $solde = solde::create($data);
         if ($solde == true) {
-            $this->dispatchBrowserEvent('success', ['message' => "l'identifiant n'existe pas"]);
+            $this->dispatchBrowserEvent('success', ['message' => "ytres bien f"]);
 
 
             $email = $this->user['email'];
@@ -57,8 +57,6 @@ class AddSolde extends Component
 
             $this->user = [];
             $this->montant = "";
-
-            return redirect()->route('send');
         }
     }
 
