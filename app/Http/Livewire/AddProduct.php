@@ -36,7 +36,7 @@ class AddProduct extends Component
 
 
         $imageName = 'image' . time() . $this->imageName->getClientOriginalName();
-        $upload_image = $this->imageName->storeAs('public/product_images', $imageName);
+        $upload_image = $this->imageName->storeAs('public/product', $imageName);
         $data = array(
             "name" => $this->product['name'],
             "price" => $this->product['price'],

@@ -6,7 +6,7 @@
 <x-sectionSlider />
 <br>
 
-<div class="row">
+<div class="row m-3">
 
     <h2>Qui sommes-nous</h2>
 
